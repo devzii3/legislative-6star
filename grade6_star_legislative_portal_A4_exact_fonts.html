@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102b50">
+<title>Grade 6 - STAR | Classroom Legislative Portal</title>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+:root{
+  --navy:#102b50;--navy-2:#183e70;--blue:#245b98;--gold:#d6ad58;
+  --ink:#202b39;--muted:#687586;--paper:#fff;--line:#e3e8ef;
+  --soft:#f3f6fa;--shadow:0 16px 45px rgba(16,43,80,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;background:#f6f8fb;color:var(--ink);line-height:1.65}
+button,a{font:inherit}
+button{cursor:pointer}
+.site-header{background:linear-gradient(115deg,var(--navy),#1b477d);color:#fff;padding:23px max(6%,calc((100% - 1180px)/2));position:relative;overflow:hidden}
+.site-header:after{content:"";position:absolute;width:360px;height:360px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-100px;top:-220px;box-shadow:0 0 0 35px rgba(255,255,255,.025),0 0 0 75px rgba(255,255,255,.02)}
+.header-content{display:flex;align-items:center;gap:18px;position:relative;z-index:1}
+.logo-placeholder{width:76px;height:76px;border:3px solid rgba(255,255,255,.85);background:#fff;color:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;flex:none;overflow:hidden;font-size:10px;font-weight:bold;line-height:1.2}
+.logo-placeholder img{width:100%;height:100%;object-fit:contain}
+.header-text h2{font-size:23px;letter-spacing:1.6px;line-height:1.2}
+.header-text p{font-size:13px;color:#dbe7f5;margin-top:5px}
+.header-rule{height:1px;border:0;background:rgba(255,255,255,.3);margin-top:20px;position:relative;z-index:1}
+.header-bottom{display:flex;justify-content:space-between;align-items:center;gap:15px;padding-top:13px;position:relative;z-index:1}
+.header-caption{font-size:11px;letter-spacing:1.6px;text-transform:uppercase;color:#d7e3f2}
+.status{font-size:11px;color:#f5e4bd;border:1px solid rgba(214,173,88,.6);border-radius:30px;padding:4px 11px;letter-spacing:.5px}
+.page{display:none;min-height:65vh;padding:44px 6%;max-width:1300px;margin:auto;animation:fadeIn .25s ease}
+.page.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+#home{max-width:none;padding:0 6% 65px;background:linear-gradient(180deg,#eaf0f7 0,#f6f8fb 75%);text-align:center}
+.hero{max-width:1000px;margin:auto;padding:85px 20px 65px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:#8a6728;font-size:11px;font-weight:bold;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
+.eyebrow:before,.eyebrow:after{content:"";height:1px;width:28px;background:var(--gold)}
+.hero h1{font-family:Georgia,"Times New Roman",serif;color:var(--navy);font-size:clamp(34px,5vw,55px);line-height:1.12;max-width:800px;margin:0 auto 18px}
+.hero-description{max-width:700px;margin:0 auto 30px;color:#5d6b7b;font-size:16px}
+.primary-button{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:var(--navy-2);color:white;border:1px solid var(--navy-2);padding:14px 24px;border-radius:6px;font-weight:bold;font-size:14px;box-shadow:0 7px 18px rgba(16,43,80,.17);transition:.2s}
+.primary-button:hover{background:#0d2b50;transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,43,80,.22)}
+.primary-button span{font-size:18px}
+.portal-strip{max-width:940px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);background:white;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);overflow:hidden}
+.strip-item{padding:19px 12px}
+.strip-item+.strip-item{border-left:1px solid var(--line)}
+.strip-item strong{display:block;color:var(--navy);font-family:Georgia,serif;font-size:23px}
+.strip-item span{font-size:11px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+.section-kicker{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#98732f;font-weight:bold;margin-bottom:8px}
+.page-heading{font-family:Georgia,"Times New Roman",serif;color:var(--navy);font-size:34px;line-height:1.2;margin-bottom:8px}
+.page-description{color:var(--muted);margin-bottom:28px;font-size:14px}
+.back-button{display:inline-flex;align-items:center;gap:8px;background:none;border:0;color:var(--blue);font-size:13px;font-weight:bold;margin-bottom:28px;padding:5px 0}
+.back-button:hover{text-decoration:underline}
+.law-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:25px 0 15px}
+.result-count{font-size:12px;color:var(--muted)}
+.search-box{width:min(100%,310px);position:relative}
+.search-box input{width:100%;border:1px solid #d8e0ea;background:#fff;border-radius:6px;padding:11px 13px 11px 37px;font-size:13px;outline:none}
+.search-box input:focus{border-color:#5783b6;box-shadow:0 0 0 3px rgba(36,91,152,.1)}
+.search-icon{position:absolute;left:13px;top:8px;color:#7a8797;font-size:17px}
+.law-list{border-top:1px solid var(--line);background:#fff;border-radius:9px;overflow:hidden;box-shadow:0 6px 22px rgba(16,43,80,.045)}
+.law-item{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:20px;transition:background .2s}
+.law-item:last-child{border-bottom:0}
+.law-item:hover{background:#f8fafd}
+.law-link{color:var(--blue);font-size:15px;font-weight:bold;text-decoration:none;letter-spacing:.5px;cursor:pointer}
+.law-link:hover{text-decoration:underline}
+.law-name{color:#536174;font-size:13px;margin-top:4px}
+.law-meta{font-size:10px;color:#8a6728;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.empty-state{padding:35px;text-align:center;color:var(--muted);font-size:14px;display:none}
+.law-details{max-width:900px;margin:0 auto;background:white;border:1px solid var(--line);border-radius:8px;box-shadow:var(--shadow);padding:clamp(24px,5vw,58px)}
+.document-topline{height:4px;width:64px;background:var(--gold);margin-bottom:24px}
+.law-number{color:var(--blue);font-size:13px;font-weight:bold;letter-spacing:1.2px;margin-bottom:10px}
+.law-title{font-family:Georgia,"Times New Roman",serif;color:var(--navy);font-size:clamp(23px,3.2vw,32px);line-height:1.3;margin-bottom:28px;text-transform:uppercase}
+.law-content{font-size:14px;line-height:1.9;color:#303b49}
+.law-content p{margin-bottom:18px}
+.law-content .document-heading{font-weight:bold;text-align:center;letter-spacing:.5px;margin:0 0 20px}
+.law-content .document-title{text-align:center;text-transform:uppercase;font-weight:bold;margin:0 auto 22px;max-width:700px}
+.law-content .enactment{text-align:justify;margin-bottom:25px}
+.law-content .section{margin:0 0 19px;text-align:justify}
+.law-content .section strong{font-weight:700;color:#172b45}
+.law-content .closing{margin-top:24px}
+.document-note{border-top:1px solid var(--line);margin-top:35px;padding-top:15px;color:#8792a0;font-size:11px;text-align:center}
+footer{background:#0d2544;color:#c5d1df;padding:25px 6%;text-align:center;font-size:11px;line-height:1.9}
+footer strong{color:#fff;letter-spacing:1px}
+@media(max-width:650px){
+ .site-header{padding:18px 5%}.logo-placeholder{width:61px;height:61px}.header-text h2{font-size:18px}.header-text p{font-size:11px}
+ .header-caption{font-size:9px;letter-spacing:1px}.page{padding:32px 5%}
+ .hero{padding:65px 4px 45px}.hero-description{font-size:14px}
+ .portal-strip{grid-template-columns:1fr}.strip-item{padding:13px}.strip-item+.strip-item{border-left:0;border-top:1px solid var(--line)}
+ .strip-item strong{font-size:20px}.law-toolbar{align-items:flex-start;flex-direction:column-reverse}
+ .search-box{width:100%}.law-item{padding:18px 15px}.law-meta{font-size:9px}
+ .page-heading{font-size:29px}.law-details{padding:25px 20px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+/* CA NO. 0001: faithful document-view layout */
+.law-document-shell{max-width:1000px!important;margin:0 auto!important;background:transparent!important;border:0!important;border-radius:0!important;box-shadow:none!important;padding:0!important}
+.document-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:0 auto 18px;max-width:794px}
+.document-toolbar>div{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.document-tag{font-size:10px;letter-spacing:1.4px;color:#8a6728;font-weight:bold}
+.document-toolbar .law-number{margin:0}
+.print-button{border:1px solid #cbd5e1;background:#fff;color:#234d7c;border-radius:5px;padding:8px 12px;font-size:12px;font-weight:bold}
+.print-button:hover{background:#eef3f9}
+.original-document{display:flex;flex-direction:column;align-items:center;gap:22px}
+
+/* Typography copied from the original DOCX heading */
+.original-doc-page .font-bebas{
+  font-family:"Bebas Neue",sans-serif;
+  font-size:10pt;
+}
+.original-doc-page .font-old-english{
+  font-family:"Old English Text MT", "Old English Text", serif;
+  font-size:12pt;
+}
+.original-doc-page .font-times{
+  font-family:"Times New Roman",serif;
+  font-size:9pt;
+}
+@page{
+  size:A4 portrait;
+  margin:0;
+}
+
+.original-doc-page{position:relative;width:210mm;height:297mm;min-height:297mm;background:#fff;color:#111;padding:25.4mm;box-shadow:0 8px 30px rgba(16,43,80,.12);font-family:Calibri,Arial,sans-serif;font-size:10pt;line-height:1.15;white-space:normal;overflow-wrap:break-word}
+.original-doc-page p{font-size:10pt;line-height:1.15;margin:0 0 9pt;white-space:pre-wrap}
+.original-doc-page .doc-school-heading{margin-left:2in;white-space:pre-wrap;margin-bottom:18pt}
+.original-doc-page .doc-session{text-align:center;margin-bottom:18pt}
+.original-doc-page .doc-begun{margin-bottom:24pt}
+.original-doc-page .doc-act-number{margin-left:1.5in;text-indent:.5in;font-weight:bold;margin-bottom:12pt}
+.original-doc-page .doc-act-title{text-align:center;font-weight:bold;margin-bottom:10pt}
+.original-doc-page .doc-enactment{text-indent:.35in;margin-bottom:14pt}
+.original-doc-page .doc-section{margin-bottom:10pt;text-align:justify}
+.original-doc-page .doc-subsection{margin-left:.5in;margin-bottom:10pt;text-align:justify}
+.original-doc-page .doc-approved{margin-top:28pt;margin-bottom:38pt}
+.original-doc-page .doc-signatures{white-space:pre-wrap;margin-bottom:35pt}
+.original-doc-page .doc-approved-date{margin-bottom:22pt}
+.original-doc-page .doc-president-signature{white-space:pre-wrap}
+.doc-page-number{position:absolute;bottom:12mm;right:25.4mm;color:#777;font-size:9pt}
+@media(max-width:850px){
+ .original-document{align-items:stretch;gap:14px}
+ .original-doc-page{width:100%;height:auto;min-height:0;aspect-ratio:210 / 297;padding:32px 25px 55px;font-size:10pt;box-shadow:0 4px 18px rgba(16,43,80,.09)}
+ .document-toolbar{padding:0 2px}
+}
+@media print{
+ @page{size:A4 portrait;margin:0}
+ body{background:#fff!important}
+ .site-header,footer,.back-button,.document-toolbar,.document-note{display:none!important}
+ #law1.page{display:block!important;padding:0!important;max-width:none!important}
+ .law-document-shell{max-width:none!important}
+ .original-document{gap:0}
+ .original-doc-page{width:210mm;height:297mm;min-height:297mm;box-shadow:none;padding:25.4mm;page-break-after:always;break-after:page}
+ .original-doc-page:last-child{page-break-after:auto;break-after:auto}
+}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-content">
+    <div class="logo-placeholder"><span>LOGO<br>PLACEHOLDER</span></div>
+    <div class="header-text">
+      <h2>GRADE 6 - STAR</h2>
+      <p>Classroom Congress · DPCGES</p>
+    </div>
+  </div>
+  <hr class="header-rule">
+  <div class="header-bottom">
+    <span class="header-caption">Official Legislative Records</span>
+    <span class="status">CLASSROOM LEGISLATIVE PORTAL</span>
+  </div>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <div class="eyebrow">Grade 6 - STAR · Classroom Congress</div>
+    <h1>Classroom Legislative Portal</h1>
+    <p class="hero-description">The official digital repository of the Grade 6 - STAR Classroom Congress, containing officially enacted classroom laws, legislative documents, and regulations.</p>
+    <button class="primary-button" onclick="showPage('laws')">Explore Enacted Laws <span>→</span></button>
+  </div>
+  <div class="portal-strip" aria-label="Portal information">
+    <div class="strip-item"><strong>2026</strong><span>Legislative Year</span></div>
+    <div class="strip-item"><strong>Grade 6 - STAR</strong><span>Classroom Congress</span></div>
+    <div class="strip-item"><strong>Official</strong><span>Digital Repository</span></div>
+  </div>
+</section>
+
+<section id="laws" class="page">
+  <button class="back-button" onclick="showPage('home')">← Back to Home</button>
+  <div class="section-kicker">Legislative archive</div>
+  <h1 class="page-heading">Enacted Laws</h1>
+  <p class="page-description">Browse the officially enacted laws of Grade 6 - STAR.</p>
+  <div class="law-toolbar">
+    <span class="result-count" id="resultCount">1 legislative document</span>
+    <label class="search-box"><span class="search-icon">⌕</span><input id="lawSearch" type="search" placeholder="Search enacted laws..." oninput="filterLaws()" aria-label="Search enacted laws"></label>
+  </div>
+  <div class="law-list" id="lawList">
+    <div class="law-item" data-search="ca no 0001 classroom wide law enforcement act 2026">
+      <div>
+        <a class="law-link" href="#law1" onclick="showPage('law1');return false;">CA NO. 0001</a>
+        <p class="law-name">Classroom Wide Law Enforcement Act of 2026</p>
+      </div>
+      <span class="law-meta">Enacted law&nbsp; →</span>
+    </div>
+  </div>
+  <div class="empty-state" id="emptyState">No laws match your search.</div>
+</section>
+
+<section id="law1" class="page">
+  <button class="back-button" onclick="showPage('laws')">← Back to Enacted Laws</button>
+  <article class="law-details law-document-shell">
+    <div class="document-toolbar">
+      <div><span class="document-tag">OFFICIAL LEGISLATIVE RECORD</span><span class="law-number">CA NO. 0001</span></div>
+      <button class="print-button" onclick="window.print()">Print document</button>
+    </div>
+    <div class="original-document">
+      <div class="original-doc-page" aria-label="Document page 1"><p class="doc-school-heading" style="margin-left:2.00in"><span class="font-bebas">                Grade 6 – staR</span><br><span class="font-old-english">Classroom Congress of <br>           6- Star</span><br><span class="font-times">                DPCGES</span></p>
+<p class="doc-session">&#9;&#9;&#9;&#9;      First Regular Session</p>
+<p class="doc-begun"><em> Begun and held in DPCGES, on Wednesday, the fourth day of November, two thousand twenty-six</em></p>
+<p class="doc-act-number" style="margin-left:1.50in;text-indent:0.50in"><strong>CLASSROOM</strong><strong> ACT NO. 0001</strong></p>
+<p class="doc-act-title"><em><strong>AN ACT ESTABLISHING AND REGULATING CLASSROOM ENACTED LAWS IN GRADE 6 – STAR</strong></em><em><strong><br>FOR STUDENT CONDUCT</strong></em></p>
+<p class="doc-enactment"><em><strong>     </strong></em><em>Be it enacted by the Class President of Grade 6 – Star and Grade 6 – Star Officers in Congress assembled:</em></p>
+<p class="doc-section"><strong>Section 1. </strong><em>Short Title</em>. – This Act shall be known as the “Classroom Wide Law Enforcement Act of 2026”.</p>
+<p class="doc-section"><strong>Section 2. </strong><em>Enforcement of Laws.</em> – For purposes of this act, ‘law’ shall refer to a signed document agreed by the officers of Grade 6 – Star and enacted by the Class President. Laws are required to be followed by the students enrolled in the section ‘Grade 6 – Star’. Every act following this bill are required to be regulated inside the 6 – Star classroom to promote order, respect, honesty and discipline. </p>
+<p class="doc-section"><strong>Section 3. </strong><em>Scope and Application of the Act. </em>– This Act shall apply exclusively to valid, recognized effective laws enacted by the Class President and Classroom Officers such as Vice President, Sergeant-at-Arms 1, and Sergeant-at-Arms 2. Any rules, regulations, or policies that have not undergone the official approval and enactment process shall not be recognized or enforced under this Act.</p>
+<p class="doc-section"><strong>Section 4. </strong><em>Penalties and Consequences for Violations. </em>– Any student found violating an officially enacted Act within Grade 6 – Star shall be subject to appropriate disciplinary measures or consequences, depending on the nature and severity of the violation. These are the officially suggestions for consequences:</p>
+<p class="doc-subsection" style="margin-left:0.50in"><strong>a. Written Reflection. </strong>– The violating student may be required to write a sentence specified by the Class President or any authorized Classroom Officer on one (1) whole sheet of intermediate pad paper, written on both the front and back sides.</p>
+<p class="doc-subsection" style="margin-left:0.50in"><strong>b.</strong> <strong>Listing of Violators. </strong>– The name of the violating student may be recorded in the official list of students who have committed violations on a particular day. The list shall be maintained by the authorized Classroom Officers for documentation and monitoring purposes.</p>
+<p class="doc-subsection" style="margin-left:0.50in"><strong>c.</strong> <strong>Temporary Classroom Retention. </strong>– The listed violating student would be required to remain inside the classroom for a specified period, as determined and approved by the Class Adviser of Grade 6 – Star.</p>
+<p style="margin-left:0.50in">All disciplinary measures shall be implemented fairly and reasonably, with the approval and supervision of the Class Adviser when necessary.</p><div class="doc-page-number">1</div></div><div class="original-doc-page" aria-label="Document page 2"><p class="doc-section"><strong>Section 5. </strong><em>Exemptions and Exceptions to Violation.</em><em> </em>– A student shall be exempted from penalties for violating an officially enacted Act under circumstances where the violation is deemed accidental, authorized, or justified. The following conditions shall qualify for exemption:</p>
+<p class="doc-subsection" style="margin-left:0.50in">a. Accidental Violations. — Students who unintentionally violate an enacted Act without deliberate disregard for its provisions may be exempted from disciplinary consequences, subject to the discretion of the Class Adviser.</p>
+<p class="doc-subsection" style="margin-left:0.50in">b. Teacher-Authorized Exceptions. — Students who violate an enacted Act upon the instruction, permission, or authorization of a teacher shall not be held accountable for such violations.</p>
+<p class="doc-subsection" style="margin-left:0.50in">c. School-Related Activities and Events. — Students participating in school-sanctioned activities, events, programs, or other authorized engagements shall be exempted from provisions of an Act that may conflict with their participation.</p>
+<p class="doc-subsection" style="margin-left:0.50in">d. Other Justifiable Circumstances. — Any other circumstances deemed reasonable and valid by the Class Adviser may qualify a student for exemption from the penalties prescribed under this Act.</p>
+<p>All exemptions shall be subject to the verification and approval of the Class Adviser of Grade 6 – Star.</p>
+<p class="doc-section"><strong>Section 6. </strong><em>Procedure for the Enactment of Laws. </em>– Any proposed law intended to be implemented within Grade 6 – Star shall undergo the following procedures before being considered official, valid, and enforceable:</p>
+<p class="doc-subsection" style="margin-left:0.50in">a. Proposal of Laws. – Any Classroom Officer, including the Class President, Vice President, Sergeant-at-Arms Boy, and Sergeant-at-Arms Girl, may propose a new law addressing matters concerning classroom order, student conduct, discipline, respect, honesty, and responsibility.</p>
+<p class="doc-subsection" style="margin-left:0.50in">b. Discussion and Deliberation. – All proposed laws shall be discussed and reviewed by the Classroom Officers to determine their purpose, necessity, fairness, and applicability within the classroom.</p>
+<p class="doc-subsection" style="margin-left:0.50in">c. Approval and Enactment. – A proposed law shall only become officially enacted upon the approval and signature of the Class President, with the agreement of the Classroom Officers and subject to the confirmation of the Class Adviser.</p>
+<p class="doc-subsection" style="margin-left:0.50in">d. Official Documentation. – Every enacted law shall be properly written, documented, and signed by the authorized officers involved in its approval. It shall be assigned an appropriate title or identification number for reference.</p>
+<p class="doc-subsection" style="margin-left:0.50in">e. Announcement and Implementation. – All officially enacted laws must be communicated and explained to the students of Grade 6 – Star before their implementation. No student shall be penalized for violating a newly enacted law before it has been properly announced and made known to the class.</p>
+<p>Any proposed law that fails to comply with the procedures stated above shall not be considered an officially enacted law under this Act.</p>
+<p class="doc-section"><strong>Section 7. </strong><em>Amendment and Repeal of Enacted Laws. </em>– Any officially enacted law within Grade 6 – STAR may be amended, revised, or repealed when deemed necessary to improve classroom order, discipline, fairness, and student welfare. The following procedures shall apply:</p>
+<p class="doc-subsection" style="margin-left:0.50in">a. Proposal for Amendment. – Any Classroom Officer may propose changes to an existing law if certain provisions require clarification, improvement, or modification.</p>
+<p class="doc-subsection" style="margin-left:0.50in">b. Proposal for Repeal. – Any Classroom Officer may recommend the removal of an existing law if it is considered outdated, unnecessary, ineffective, or no longer applicable to the classroom.</p>
+<p class="doc-subsection" style="margin-left:0.50in">c. Review and Deliberation. – All proposed amendments and repeals shall be discussed and reviewed by the Classroom Officers to determine their necessity, fairness, and possible effects on the students.</p><div class="doc-page-number">2</div></div><div class="original-doc-page" aria-label="Document page 3"><p class="doc-subsection" style="margin-left:0.50in">d. Approval and Authorization. – Any amendment or repeal shall require the approval of the Class President, agreement of the Classroom Officers, and confirmation of the Class Adviser before taking effect.</p>
+<p class="doc-subsection" style="margin-left:0.50in">e. Official Documentation. – All approved amendments and repeals shall be properly documented and recorded to maintain an accurate record of the currently effective classroom laws.</p>
+<p>No amendment or repeal shall take effect without completing the approval and authorization procedures established under this section.</p>
+<p class="doc-section"><strong>Section 8. </strong><em>Duties and Responsibilities of Classroom Officers. </em>– The Classroom Officers of Grade 6 – Star. shall be responsible for maintaining order, monitoring compliance, and ensuring the proper implementation of all officially enacted laws. Each officer shall perform the following duties:</p>
+<p class="doc-subsection" style="margin-left:0.50in">a. Class President. – The Class President shall serve as the primary authority in the enactment and implementation of classroom laws. The President shall approve proposed laws, oversee their enforcement, authorize appropriate recommendations for disciplinary measures, and ensure that all enacted laws are properly followed.</p>
+<p class="doc-subsection" style="margin-left:0.50in">b. Vice President. – The Vice President shall assist the Class President in supervising the implementation of classroom laws and shall temporarily assume the President&#x27;s responsibilities when the latter is absent or unable to perform their duties, subject to the Class Adviser&#x27;s approval.</p>
+<p class="doc-subsection" style="margin-left:0.50in">c. Sergeant-at-Arms Boy. – The Sergeant-at-Arms Boy shall assist in maintaining classroom order, monitor student compliance with enacted laws, and report observed violations to the appropriate officers.</p>
+<p class="doc-subsection" style="margin-left:0.50in">d. Sergeant-at-Arms Girl. – The Sergeant-at-Arms Girl shall assist the Sergeant-at-Arms Boy in monitoring classroom discipline, documenting reported violations, and ensuring that classroom regulations are properly observed.</p>
+<p class="doc-subsection" style="margin-left:0.50in">e. Collective Responsibility. – All Classroom Officers shall cooperate in carrying out their respective duties and shall exercise their authority fairly, responsibly, and without discrimination. No officer shall impose unauthorized penalties, abuse their position, or enforce personal rules that have not undergone the official enactment process.</p>
+<p>All duties and responsibilities under this section shall remain subject to the supervision and authority of the Class Adviser of Grade 6 – Star.</p>
+<p class="doc-section"><strong>Section 9. </strong><em>Rights and Responsibilities of Students</em><em>. </em>– All students enrolled in Grade 6 – Star shall be entitled to certain rights and shall be expected to fulfill their responsibilities in accordance with the officially enacted classroom laws. The following provisions shall apply:</p>
+<p class="doc-subsection" style="margin-left:0.50in">a. Right to Information. – Every student shall have the right to be informed of all officially enacted laws, including their provisions, purposes, and corresponding consequences before their implementation.</p>
+<p class="doc-subsection" style="margin-left:0.50in">b. Right to Fair Treatment. – Every student shall be treated equally and fairly regardless of personal relationships, academic performance, or social standing. No student shall be subjected to discrimination, favoritism, or unjust treatment in the enforcement of classroom laws.</p>
+<p class="doc-subsection" style="margin-left:0.50in">c. Right to Explanation. – Any student accused of violating an enacted law shall have the opportunity to explain their side and provide relevant circumstances before any disciplinary consequence is imposed.</p><div class="doc-page-number">3</div></div><div class="original-doc-page" aria-label="Document page 4"><p class="doc-subsection" style="margin-left:0.50in">d. Right to Reasonable Consequences. – No student shall be subjected to excessive, unreasonable, humiliating, or inappropriate disciplinary measures. All consequences must be proportionate to the violation and subject to the approval of the Class Adviser.</p>
+<p class="doc-subsection" style="margin-left:0.50in">e. Responsibility to Follow Enacted Laws. – Every student shall be responsible for understanding and complying with all officially enacted classroom laws that have been properly announced and implemented.</p>
+<p class="doc-subsection" style="margin-left:0.50in">f. Responsibility to Respect Authority. – Students shall respect the legitimate responsibilities and authority of the Class President and Classroom Officers, provided that their actions remain within the limits of this Act and the supervision of the Class Adviser.</p>
+<p class="doc-subsection" style="margin-left:0.50in">g. Responsibility to Maintain Classroom Order. – Every student shall contribute to maintaining a peaceful, respectful, clean, honest, and disciplined classroom environment.</p>
+<p>All rights and responsibilities established under this section shall be exercised in accordance with school policies and the authority of the Class Adviser.</p>
+<p class="doc-section"><strong>Section 10. </strong><em>Separability Clause. – </em>If any provision, section, or part of this Act is declared invalid, unenforceable, or inconsistent with existing school policies by the Class Adviser or the appropriate school authority, the remaining provisions that are not affected shall continue to remain valid and enforceable.</p>
+<p>The invalidity of one provision shall not affect the validity and implementation of the other provisions of this Act, provided that they remain consistent with school rules and regulations.</p>
+<p class="doc-section"><strong>Section 11. </strong><em>Effectivity. – </em>This Act shall take effect next Monday after its report to the Grade 6 – Star Classroom.</p>
+<p class="doc-approved">Approved, </p>
+<p class="doc-signatures">&#9;(Sgd.) <strong>ANGELIQUE NOELLE MADANGLOG</strong><strong>&#9;</strong><strong>&#9;</strong>(Sgd.) <strong>KAISER DAYNE E. TANAS</strong><strong><br></strong><strong>&#9;             </strong>Sergeant-at-Arms Girl&#9;&#9;&#9;           Sergeant-at-Arms Boy</p>
+<p class="doc-approved-date">Approved: NOV 5 2026</p>
+<p class="doc-president-signature"><strong>(Sgd.) KENNETH O. BALITON</strong><strong><br></strong><em>Class President</em></p><div class="doc-page-number">4</div></div>
+    </div>
+  </article>
+</section>
+</main>
+
+<footer>
+  <p><strong>GRADE 6 - STAR | CLASSROOM CONGRESS - DPCGES</strong></p>
+  <p>Classroom Legislative Portal © 2026</p>
+</footer>
+
+<script>
+function showPage(pageId){
+  const target=document.getElementById(pageId);
+  if(!target)return;
+  document.querySelectorAll('.page').forEach(page=>page.classList.remove('active'));
+  target.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function filterLaws(){
+  const query=document.getElementById('lawSearch').value.trim().toLowerCase();
+  const items=[...document.querySelectorAll('.law-item')];
+  let visible=0;
+  items.forEach(item=>{
+    const matches=item.dataset.search.includes(query);
+    item.style.display=matches?'flex':'none';
+    if(matches)visible++;
+  });
+  document.getElementById('resultCount').textContent=visible+' legislative document'+(visible===1?'':'s');
+  document.getElementById('emptyState').style.display=visible?'none':'block';
+}
+</script>
+</body>
+</html>
